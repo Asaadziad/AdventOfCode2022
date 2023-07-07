@@ -8,7 +8,8 @@ class compartment{
     std::string literal;
     int prios[53];
     public:
-    compartment(){};
+    compartment();
+    compartment(const compartment& c);
     compartment(const std::string literal);
     int* getPrios();
     

@@ -16,3 +16,16 @@ rucksack::rucksack(const std::string literal){
     this->c1 = compartment(literal.substr(0,(size/2)));
     this->c2 = compartment(literal.substr((size/2)));
 }
+
+rucksack::rucksack(const rucksack& r){
+    this->c1 = compartment(r.c1);
+    this->c2 = compartment(r.c2);
+}
+
+
+    compartment& rucksack::getFirstCompartment(){
+        return this->c1;
+    }
+    compartment& rucksack::getSecondCompartment(){
+        return this->c2;
+    }
