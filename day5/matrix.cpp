@@ -25,9 +25,20 @@ Matrix::Matrix(std::vector<char> tokens,int cols){
    }
 }
 
+static bool isNumber(char ch){
+    return ch >= '0' && ch <= '9';
+}
+
 void Matrix::applyAction(std::string action){
     if(action == "" || action == " ") return;
-    int n_chars = action[action.find("move") + 5] - '0';
+    int n_chars = 0;
+    char current = action.find("move") + 5;
+    while(isNumber(action[current])){
+        n_chars *= 10;
+        n_chars += action[current] - '0';
+        current++;
+    }
+    
     int i_col = action[action.find("from") + 5] - '0' - 1;
     int target_col = action.at(action.find("to") + 3) - '0' - 1;
 
@@ -35,7 +46,7 @@ void Matrix::applyAction(std::string action){
         matrix.at(target_col).push_back(matrix.at(i_col).back());
         matrix.at(i_col).pop_back();
     }
-    printMatrix(matrix);
+    
 
 }
 

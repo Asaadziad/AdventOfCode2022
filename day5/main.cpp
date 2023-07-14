@@ -16,7 +16,7 @@ static bool strIncludes(std::string str, char s){ // str is Cells each cell is 3
 
 
 int main(){
-    std::fstream file("fakeput.txt");
+    std::fstream file("input.txt");
     std::string buffer;
     std::string i_buffer;
 
